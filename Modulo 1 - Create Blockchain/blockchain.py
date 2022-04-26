@@ -42,7 +42,7 @@ class Blockchain:
         return new_proof
     
     def hash(self, block):
-        encoded_block = json.dump(block, sort_keys=True).encode()
+        encoded_block = json.dumps(block, sort_keys=True).encode()
         return hashlib.sha256(encoded_block).hexdigest()
 
     def is_chain_valid(self, chain):
@@ -71,7 +71,6 @@ class Blockchain:
     
     
 app = Flask(__name__)
-app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 blockchain = Blockchain()
 
 
